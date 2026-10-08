@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  background-color: #0a111c;
+}
+
+#bg-layer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  background-image: url("bg-steampunk.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+#webgl-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+#ui-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  /* pointer-events: none; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+.interactive {
+  pointer-events: auto;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  gap: 8px;
+}
+
+.header-row {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  align-items: center;
+}
+
+.badge-frame {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border: 2px solid #38bdf8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  text-align: center;
+  flex: 1;
+}
+
+.btn-ui {
+  background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+  border: 2px solid #60a5fa;
+  border-radius: 12px;
+  color: #ffffff;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.1s ease,
+    background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.btn-ui:active {
+  transform: scale(0.95);
+}
+
+.btn-green {
+  background: linear-gradient(180deg, #10b981 0%, #047857 100%);
+  border-color: #34d399;
+}
+
+#bottom-bar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#ad-bolt-btn {
+  width: 100%;
+  max-width: 400px;
+  padding: 14px 20px;
+  font-size: 15px;
+}
+
+.btn-icon-text .btn-text-desktop {
+  display: inline;
+}
+
+/* Мобильная адаптация согласно макету */
+@media (max-width: 600px) {
+  #ui-layer {
+    padding: 10px 12px;
+  }
+
+  #header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-icon {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .btn-icon-text .btn-text-desktop {
+    display: none;
+  }
+
+  .btn-reset-mobile {
+    flex: 1;
+    height: 44px;
+  }
+
+  .badge-frame {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden; /* Полностью скрывает окно из дерева рендеринга */
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border: 2px solid #38bdf8;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  max-width: 320px;
+  width: 85%;
+  transform: scale(0.9);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal.active .modal-card {
+  transform: scale(1);
+}
+.modal-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #f3f4f6;
+  margin-bottom: 12px;
+}
+@media (max-width: 600px) {
+  #bg-layer {
+    width: 100vh;
+    height: 100vw;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+#webgl-container {
+  z-index: 1;
+}

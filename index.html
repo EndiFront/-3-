@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Болты и Гайки 3Д</title>
+  </head>
+  <body>
+    <div id="bg-layer"></div>
+    <div id="webgl-container"></div>
+
+    <div id="ui-layer">
+      <div id="header">
+        <div class="header-row">
+          <div class="badge-frame" id="level-display" data-i18n="level">УРОВЕНЬ 1</div>
+          <div
+            class="badge-frame"
+            id="timer-display"
+            style="border-color: #f59e0b; color: #f59e0b"
+          >
+            ⏳ 01:00
+          </div>
+        </div>
+        <div class="header-row">
+          <button
+            class="btn-ui btn-icon interactive"
+            id="pause-btn"
+            aria-label="Пауза"
+          >
+            ⏸
+          </button>
+          <button
+            class="btn-ui btn-icon btn-icon-text interactive"
+            id="audio-btn"
+            aria-label="Звук"
+          >
+            <span id="audio-icon">🔊</span>
+          </button>
+          <button class="btn-ui btn-reset-mobile interactive" id="restart-btn" data-i18n="reset">
+            🔄 СБРОС
+          </button>
+        </div>
+      </div>
+
+      <div id="bottom-bar">
+        <button class="btn-ui btn-green interactive" id="ad-bolt-btn" data-i18n="adBolt">
+          🎬 +1 СТЕРЖЕНЬ (РЕКЛАМА)
+        </button>
+      </div>
+
+      <div class="modal" id="pause-modal">
+        <div class="modal-card">
+          <div class="modal-title" data-i18n="pauseTitle">ПАУЗА</div>
+          <p style="margin-bottom: 20px; color: #94a3b8; font-weight: 700" data-i18n="pauseText">
+            Игра приостановлена.
+          </p>
+          <button
+            class="btn-ui btn-green interactive"
+            id="resume-btn"
+            style="width: 100%"
+            data-i18n="resume"
+          >
+            ПРОДОЛЖИТЬ
+          </button>
+        </div>
+      </div>
+
+      <div class="modal" id="win-modal">
+        <div class="modal-card">
+          <div class="modal-title" style="color: #34d399" data-i18n="winTitle">ОТЛИЧНО!</div>
+          <p style="margin-bottom: 20px; color: #94a3b8; font-weight: 700" data-i18n="winText">
+            Головоломка решена!
+          </p>
+          <button
+            class="btn-ui btn-green interactive"
+            id="next-lvl-btn"
+            style="width: 100%"
+            data-i18n="nextLvl"
+          >
+            СЛЕДУЮЩИЙ УРОВЕНЬ
+          </button>
+        </div>
+      </div>
+
+      <div class="modal" id="lose-modal">
+        <div class="modal-card">
+          <div class="modal-title" style="color: #ef4444" data-i18n="loseTitle">ВРЕМЯ ВЫШЛО!</div>
+          <p style="margin-bottom: 20px; color: #94a3b8; font-weight: 700" data-i18n="loseText">
+            Не успели открутить все гайки.
+          </p>
+          <button
+            class="btn-ui btn-green interactive"
+            id="time-ad-btn"
+            style="width: 100%; margin-bottom: 10px"
+            data-i18n="timeAd"
+          >
+            🎬 +60 СЕК (РЕКЛАМА)
+          </button>
+          <button
+            class="btn-ui interactive"
+            id="lose-restart-btn"
+            style="width: 100%"
+            data-i18n="restart"
+          >
+            🔄 НАЧАТЬ ЗАНОВО
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="three.min.js"></script>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/index.umd.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

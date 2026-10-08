@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <!-- Глубокий базовый градиент без резких перепадов -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1b2a47"/>
+      <stop offset="55%" stop-color="#0f192b"/>
+      <stop offset="100%" stop-color="#0a111c"/>
+    </radialGradient>
+
+    <!-- Тёплое золотое свечение -->
+    <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4af37" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#d4af37" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Большая детальная шестерня -->
+    <g id="gearLarge" fill="#d4af37" fill-opacity="0.06">
+      <path d="M0 -150 L18 -150 L24 -120 A120 120 0 0 1 54 -107 L81 -125 L94 -112 L76 -85 A120 120 0 0 1 89 -55 L119 -49 L119 -31 L89 -25 A120 120 0 0 1 76 5 L94 32 L81 45 L54 27 A120 120 0 0 1 24 40 L18 70 L-18 70 L-24 40 A120 120 0 0 1 -54 27 L-81 45 L-94 32 L-76 5 A120 120 0 0 1 -89 -25 L-119 -31 L-119 -49 L-89 -55 A120 120 0 0 1 -76 -85 L-94 -112 L-81 -125 L-54 -107 A120 120 0 0 1 -24 -120 Z"/>
+      <circle r="75" fill="none" stroke="#d4af37" stroke-opacity="0.08" stroke-width="6"/>
+      <circle r="35" fill="none" stroke="#d4af37" stroke-opacity="0.06" stroke-width="4"/>
+    </g>
+
+    <!-- Средняя шестерня -->
+    <g id="gearMedium" fill="#b8860b" fill-opacity="0.07">
+      <circle r="80" fill="none" stroke="#b8860b" stroke-opacity="0.08" stroke-width="12" stroke-dasharray="15 10"/>
+      <circle r="50" fill="none" stroke="#b8860b" stroke-opacity="0.06" stroke-width="4"/>
+      <circle r="20" fill="none" stroke="#b8860b" stroke-opacity="0.05" stroke-width="2"/>
+    </g>
+  </defs>
+
+  <!-- Чистый фоновый слой -->
+  <rect width="1920" height="1080" fill="url(#bgGlow)"/>
+
+  <!-- Мягкая подсветка в игровых зонах (видно и на ПК, и на смартфонах) -->
+  <circle cx="960" cy="540" r="550" fill="url(#goldGlow)"/>
+  <circle cx="450" cy="300" r="350" fill="url(#goldGlow)"/>
+  <circle cx="1470" cy="780" r="350" fill="url(#goldGlow)"/>
+
+  <!-- ЭЛЕМЕНТЫ ФОНА (Смещены ближе к центру для видимости на Mobile) -->
+  
+  <!-- Левая верхняя группа -->
+  <use href="#gearLarge" x="350" y="220" transform="scale(1.3) rotate(15 350 220)"/>
+  <use href="#gearMedium" x="220" y="380" transform="scale(0.9) rotate(-30 220 380)"/>
+
+  <!-- Правая верхняя группа -->
+  <use href="#gearLarge" x="1570" y="250" transform="scale(1.4) rotate(45 1570 250)"/>
+  <use href="#gearMedium" x="1700" y="420" transform="scale(0.85) rotate(-15 1700 420)"/>
+
+  <!-- Левая нижняя группа -->
+  <use href="#gearLarge" x="280" y="850" transform="scale(1.2) rotate(-60 280 850)"/>
+  <use href="#gearMedium" x="450" y="920" transform="scale(0.95) rotate(20 450 920)"/>
+
+  <!-- Правая нижняя группа -->
+  <use href="#gearLarge" x="1640" y="860" transform="scale(1.25) rotate(80 1640 860)"/>
+  <use href="#gearMedium" x="1450" y="750" transform="scale(1) rotate(-40 1450 750)"/>
+</svg>
